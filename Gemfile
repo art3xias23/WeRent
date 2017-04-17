@@ -27,6 +27,7 @@ gem 'omniauth-facebook'
 gem 'paperclip'
 
 gem 'geocoder'
+gem 'pg'
 
 
 group :development, :test do
