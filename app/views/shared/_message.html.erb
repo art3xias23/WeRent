@@ -1,0 +1,13 @@
+<% unless flash.empty? %>
+	<script type="text/javascript">
+		<% flash.each do |f| %>
+			<% type = f[0].to_s.gsub('alert','error').gsub('notice', 'info') %>
+			toastr['<%= type %>']('<%= f[1] %>')
+		<% end %>
+	</script>
+<% end %>
+
+<%#  Comments
+f[0] is the flash[:notice]
+f[1] is the content of the message
+%>
