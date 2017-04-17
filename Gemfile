@@ -27,7 +27,10 @@ gem 'omniauth-facebook'
 gem 'paperclip'
 
 gem 'geocoder'
-gem 'pg'
+
+
+gem 'jquery-ui-sass-rails'
+
 
 
 group :development, :test do

@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
-
+@import "jquery.ui.datepicker";
 body {  
   color: #565a5c;
   background-color: #F8F8F8;
@@ -219,4 +219,10 @@ input[type="checkbox"]:checked:before {
 
 .text-line-through {
   text-decoration: line-through;
+}
+
+.reservation-table td {
+  width: 100%;
+  border: 1px solid #dce0e0;
+  padding: 10px;
 }

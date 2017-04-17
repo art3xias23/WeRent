@@ -1,11 +1,11 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		Create your beautiful place
+		Add a new place to our database!
 	</div>
 	<div class="panel-body">
 		<div class="container">
 			
-			<%= form_for @room, html: {multipart: true} do |f| %>
+			<%= form_for (@room), html: {multipart: true} do |f| %>
 
 				<div class="row">
 					<div class="col-md-4 select">
@@ -98,8 +98,8 @@
 						<div class="form-group">
 							<label>Nightly Price</label>
 							<div class="input-group">
-								<div class="input-group-addon">$</div>
-								<%= f.text_field :price, placeholder: "eg. $100", class: "form-control" %>
+								<div class="input-group-addon">£</div>
+								<%= f.text_field :price, placeholder: "eg. £100", class: "form-control" %>
 							</div>	
 						</div>
 					</div>
