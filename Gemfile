@@ -12,6 +12,8 @@ gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
+
+#Better looking notifications
 gem 'toastr-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -19,18 +21,24 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 
+#Generate Users
 gem 'devise'
 
+#Facebook authenticatiom
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+#Image Upload
 gem 'paperclip'
 
+#Google maps
 gem 'geocoder'
 
-
+#Jquery date picker
 gem 'jquery-ui-sass-rails'
 
+
+#Real Time Messages
 gem 'private_pub'
 
 gem 'thin'
