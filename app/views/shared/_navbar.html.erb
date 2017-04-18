@@ -19,11 +19,14 @@
         <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag gravatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
-            <%= current_user.fullname %> <span class="caret"></span></a>
+              <%= image_tag gravatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
+              <%= current_user.fullname %> <span class="caret"></span>
+            </a>
 
             <ul class="dropdown-menu">
-              <li><a href="#">Your Trips</a></li>
+              <li><%= link_to "Your Listings", rooms_path %></li>
+              <li><%= link_to "Your Reservations", your_reservations_path %></li>
+              <li><%= link_to "Your Trips", your_trips_path %></li>
               <li><a href="#">Wish Lists</a></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
@@ -33,7 +36,7 @@
           </li>
         <% end %>
 
-          <li>
+        <li>
           <a href="#"><i class="fa fa-envelope-o"></i> Messages</a>
         </li>
         <li>
