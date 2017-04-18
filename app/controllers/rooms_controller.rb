@@ -1,7 +1,6 @@
 class RoomsController < ApplicationController
-    before_action :set_room, only: [:show, :edit, :update]
-    before_action :authenticate_user!, except: [:show]
-  
+  before_action :set_room, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @rooms = current_user.rooms
@@ -9,6 +8,11 @@ class RoomsController < ApplicationController
 
   def show
     @pictures = @room.pictures
+
+    @booked = Reservation.where("room_id = ? AND user_id = ?", @room.id, current_user.id).present? if current_user
+
+    @reviews = @room.reviews
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
   def new
@@ -20,48 +24,48 @@ class RoomsController < ApplicationController
 
     if @room.save
 
-      if params[:images]
+      if params[:images] 
         params[:images].each do |image|
           @room.pictures.create(image: image)
-        end 
-      end 
+        end
+      end
 
       @pictures = @room.pictures
-      redirect_to edit_room_path(@room), notice: "Saved"
-    else 
+      redirect_to edit_room_path(@room), notice: "Successfully Saved"
+    else
       render :new
-    end 
+    end
   end
 
   def edit
-    if current_user.id = @room.user.id
+    if current_user.id == @room.user.id
       @pictures = @room.pictures
-    else 
-      redirect_to root_path, notice: "You are not allowed to view this section"
-    end 
+    else
+      redirect_to root_path, notice: "You are not allowed to view the source."
+    end
   end
 
   def update
     if @room.update(room_params)
 
-      if params[:images]
+      if params[:images] 
         params[:images].each do |image|
           @room.pictures.create(image: image)
-        end 
-      end 
-      redirect_to edit_room_path(@room), notice: "Updated"
-      
-    else 
+        end
+      end
+
+      redirect_to edit_room_path(@room), notice: "Successfully Updated!"
+    else
       render :edit
-    end 
+    end
   end
 
-  private 
-  def set_room
-    @room = Room.find(params[:id])
-  end 
+  private
+    def set_room
+      @room = Room.find(params[:id]) 
+    end
 
-  def room_params
-    params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_internet, :is_air, :is_pets, :is_heating, :price, :active)
-  end 
+    def room_params
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :is_pets, :price, :active)
+    end
 end

@@ -6,6 +6,7 @@ class ConversationsController < ApplicationController
 		@conversations = Conversation.involving(current_user)
 	end
 
+	#checks if there is a convo and if there is it just goes to that one when u click on start a message, if not it creates a new one
 	def create
 		if Conversation.between(params[:sender_id], params[:recipient_id]).present?
 			@conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first

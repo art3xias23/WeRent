@@ -58,8 +58,8 @@
 			</div>
 
 			<div class="col-md-4">
-				<!-- Reservation form -->
-				<%= render 'reservations/form' %>	
+				<!-- Reservation form -->	
+				<%= render 'reservations/form' %>
 			</div>
 		</div>
 
@@ -88,7 +88,6 @@
 					<div class="col-md-6">
 						<li class="<%= 'text-line-through' if !@room.is_heating %>">Heating</li>
 						<li class="<%= 'text-line-through' if !@room.is_air %>">Air Conditioning</li>
-						<li class="<%= 'text-line-through' if !@room.is_pets %>">Pets Allowed</li>
 					</div>
 				</div>
 			</div>
@@ -133,60 +132,87 @@
 		<br>
 		<hr>
 
-		<!-- Google Map -->
-	<div class="row">
-				<div class="col-md-12">
-					
-					
-
-			<style>
-		      #map {
-		        height: 400px;
-		        width: 100%;
-		       }
-	       </style>
-
-	       <div id="map"></div>
-
-			    <script>
-	      function initMap() {
-	        var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude%> };
-	        var map = new google.maps.Map(document.getElementById('map'), {
-	          zoom: 14,
-	          center: uluru
-	        });
-	        var marker = new google.maps.Marker({
-	          position: uluru,
-	          map: map
-	        });
-	      }
-	    </script>
-	    <script async defer
-	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCORGGiM3q8iDRM7vsINIZFPLBOemUodB0&callback=initMap">
-	    </script>
-
-
-				</div>
-	</div>
-
-	<!-- Close By Rooms -->
-	<h3>Close By</h3>
-	<div class="row">
-		<% for room in @room.nearbys(10)%>
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading preview">
-						<%= image_tag room.pictures[0].image.url(:medium)%>
+		<!-- Reviews -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
+				<div class="container">
+					<div>
+						<%= render 'reviews/form' if @booked && !@hasReview %>
 					</div>
-					<div class="panel-body">
-						<%= link_to room.list_name, room%><br>
-						(<%= room.distance.round(2) %> miles away)
+					<div>
+						<%= render 'reviews/list' %>
 					</div>
 				</div>
 			</div>
-		<% end %>
-	</div>
+		</div>
+
+		<!-- Google Map -->
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div id="map"></div>
+
+				<style>
+		      #map {
+		        width: 100%;
+		        height: 400px;
+		      }
+		    </style>
+
+		    <script src="https://maps.googleapis.com/maps/api/js"></script>
+		    <script>
+		      function initialize() {
+		        var mapCanvas = document.getElementById('map');
+		        var mapOptions = {
+		          center: new google.maps.LatLng(<%= @room.latitude %>, <%= @room.longitude %>),
+		          zoom: 14,
+		          mapTypeId: google.maps.MapTypeId.ROADMAP
+		        }
+		        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+		        var marker = new google.maps.Marker({
+		        	position: new google.maps.LatLng(<%= @room.latitude %>, <%= @room.longitude %>),
+		        	title: "AirAlien" 
+		        });
+
+		        marker.setMap(map);
+		      }
+		      google.maps.event.addDomListener(window, 'load', initialize);
+		    </script>
+
+
+			</div>
+		</div>
+
+		<!-- Close by Rooms -->
+		<h3>Near by</h3>
+		<div class="row">
+			<% for room in @room.nearbys(10) %>
+				
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading preview">
+							<%= image_tag room.pictures[0].image.url(:medium) %>
+						</div>
+						<div class="panel-body">
+							<%= link_to room.listing_name, room %><br>
+							(<%= room.distance.round(2) %> miles away)
+						</div>
+					</div>
+				</div>
+
+			<% end %>
+		</div>
 
 
 	</div>
 </div>
+
+<script>
+	$('#average_rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: <%= @room.average_rating %>
+	});
+</script>
