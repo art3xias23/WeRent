@@ -37,6 +37,9 @@ gem 'geocoder'
 #Jquery date picker
 gem 'jquery-ui-sass-rails'
 
+#Creates simple search forms
+gem 'ransack'
+
 
 #Real Time Messages
 gem 'private_pub'
