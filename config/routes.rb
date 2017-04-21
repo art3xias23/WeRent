@@ -32,5 +32,6 @@ Rails.application.routes.draw do
          get '/your_reservations' => 'reservations#your_reservations'
          get '/search' => 'static_pages#search'
 
-
+        post '/notify' => 'reservations#notify'
+        post '/your_trips' => 'reservations#your_trips'
 end

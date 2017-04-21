@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-  	@rooms = Room.all
+  	@rooms = Room.limit(3)
   end
 
   def search

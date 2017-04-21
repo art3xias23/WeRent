@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418170358) do
+ActiveRecord::Schema.define(version: 20170421190849) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170418170358) do
     t.integer  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "status"
     t.index ["room_id"], name: "index_reservations_on_room_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
