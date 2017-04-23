@@ -1,0 +1,25 @@
+<% if current_user.try(:admin?) %>
+	<% @users.each do |user| %> <br>
+		<div class="row">
+			<div class="col-md-3">
+				<%= image_tag gravatar_url(user), class: 'avatar-full'%>
+			</div>
+
+			
+			
+			<div class="col-md-9">
+				<h2><%=link_to user.fullname, user %></h2>
+
+				<div class="description row-space-3">
+					<%= user.description %>
+				</div>
+
+				
+				
+
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<h2>We apologize but you do not have permission to view this page</h2>
+<% end %>

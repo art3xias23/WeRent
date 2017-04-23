@@ -1,3 +1,26 @@
+
+<%if current_user.admin?%>
+<div class="panel-body">
+				
+				<% @roomsAdmin.each do |room| %>
+					<div class="row">
+						<div class="col-md-2">
+							<%= image_tag room.pictures[0].image.url(:thumb) if room.pictures.length > 0 %>
+						</div>		
+						<div class="col-md-7">
+							<h4><%= link_to room.listing_name, room %></h4>
+						</div>		
+						<div class="col-md-3 right">
+							<%= link_to "Update", edit_room_path(room), class: "btn btn-primary" %>
+						</div>		
+					</div>
+					<hr>
+				<% end %>
+
+			</div>
+
+<% else %>
+
 <div class="row">
 	<div class="col-md-3">
 		<ul class="sidebar-list">
@@ -19,7 +42,7 @@
 							<%= image_tag room.pictures[0].image.url(:thumb) if room.pictures.length > 0 %>
 						</div>		
 						<div class="col-md-7">
-							<h4><%= room.listing_name %></h4>
+							<h4><%= link_to room.listing_name, room %></h4>
 						</div>		
 						<div class="col-md-3 right">
 							<%= link_to "Update", edit_room_path(room), class: "btn btn-primary" %>
@@ -32,3 +55,5 @@
 		</div>
 	</div>
 </div>
+
+<% end %>

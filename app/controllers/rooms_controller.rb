@@ -4,10 +4,12 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = current_user.rooms
+    @roomsAdmin = Room.all
   end
 
   def show
     @pictures = @room.pictures
+    
 
     @booked = Reservation.where("room_id = ? AND user_id = ?", @room.id, current_user.id).present? if current_user
 
@@ -38,7 +40,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    if current_user.id == @room.user.id
+    if current_user.id == @room.user.id || current_user.admin?
       @pictures = @room.pictures
     else
       redirect_to root_path, notice: "You are not allowed to view the source."

@@ -18,7 +18,7 @@
 						<% if reservation.status %>
 							<div class="row">
 								<div class="col-md-2">
-									<%= reservation.start_date.strftime('%v') %>
+									<%= reservation.try(:start_date).try(:strftime, '%v') %>
 								</div>	
 								<div class="col-md-6">
 									<%= link_to room_path(reservation.room) do %>
