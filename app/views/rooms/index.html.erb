@@ -1,5 +1,6 @@
 <%provide(:title, "Your Listings")%>
 <%if current_user.admin?%>
+<h1 align="center">Edit Rooms</h1>
 <div class="panel-body">
 				
 				<% @roomsAdmin.each do |room| %>

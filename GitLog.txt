@@ -1,0 +1,77 @@
+commit 0134fea1a28d9df91987957a60cfd35bdf566f9f
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Mon Apr 24 21:06:17 2017 +0100
+
+    Created Dummy Rooms and slightly changed the layout css
+
+commit 4f7802a30b7b780aaa46ab0e5ac4ef7a4c84e892
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Mon Apr 24 17:17:08 2017 +0100
+
+    Added controller functionality and models tests
+
+commit cdc9668ee92cff382c564d3f9961e50199cee356
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Sun Apr 23 19:03:26 2017 +0100
+
+    Added Admin migration + Edit Rooms, Users, Reviews
+
+commit 208f5548cc8be451a241d070c59f700266d4ea0c
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Fri Apr 21 21:04:23 2017 +0100
+
+    implemeted sandbox paypal
+
+commit 2b8ab0c8369e82370024c45124088810e81a2d28
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Fri Apr 21 20:07:48 2017 +0100
+
+    Fixed layout, added stylesheet class and id, edited the search bar
+
+commit 886d085c6e6959472797415b038b2e4d737ab7b1
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Tue Apr 18 19:43:22 2017 +0100
+
+    Finish up reviews
+
+commit 3ebc3827bbbbf46730567151dc50e2ee2ac56a46
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Tue Apr 18 19:19:51 2017 +0100
+
+    Finished messages
+
+commit 7d6befba15fa574694c72ae9a4bd4be427b34064
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Tue Apr 18 16:38:56 2017 +0100
+
+    set up the messages and conversations models and views
+
+commit 85932737f2c7f316b595aceed2b3ee16144458ad
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Tue Apr 18 00:32:05 2017 +0100
+
+    finished the jquery datepicker
+
+commit 35d1e8c3312b46c156ed27b0108ec1d7639c710d
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Mon Apr 17 22:14:14 2017 +0100
+
+    Create Reserations by using jquery datepicker
+
+commit 98549f914b02356054448571a5e06086d7c7daca
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Mon Apr 17 16:13:33 2017 +0100
+
+    Add Gemfile changes
+
+commit 0383cccdcc0c5240268ba9b91892af142e09d352
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Mon Apr 17 16:01:45 2017 +0100
+
+    Add precompiled assets for heroku
+
+commit b9904fdba4ed3e5b531827b0165520407c065f34
+Author: art3xias23 <k.milchev.12@aberdeen.ac.uk>
+Date:   Mon Apr 17 15:50:25 2017 +0100
+
+    Reinitializing failed git repository.
