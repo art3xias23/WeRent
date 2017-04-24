@@ -3,6 +3,14 @@ class StaticPagesController < ApplicationController
   	@rooms = Room.limit(3)
   end
 
+  def about
+
+  end
+
+  def contact
+
+  end 
+
   def search
   	
   	if params[:search].present? && params[:search].strip != ""

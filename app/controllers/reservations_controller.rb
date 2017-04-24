@@ -29,12 +29,12 @@ class ReservationsController < ApplicationController
 				business: 'konstantin.v.milchev-facilitator@gmail.com',
 				cmd: '_xclick',
 				upload: 1,
-				notify_url: 'http://6709146b.ngrok.io/notify',
+				notify_url: 'http://39576623.ngrok.io/notify',
 				amount: @reservation.total,
 				item_name: @reservation.room.listing_name,
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://6709146b.ngrok.io/your_trips'
+				return: 'http://39576623.ngrok.io/your_trips'
 			}
 
 			redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
@@ -50,11 +50,9 @@ class ReservationsController < ApplicationController
 
 		reservation = Reservation.find(params[:item_number])
 
-		if status == "Completed"
+		
 			reservation.update_attributes status: true
-		else
-			reservation.destroy
-		end
+		
 
 		render nothing: true
 	end

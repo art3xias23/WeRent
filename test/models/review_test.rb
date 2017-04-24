@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+  	@review = Review.new(comment: "Great!", star: '1', room:'one', user: 'one')
+  end 
 end

@@ -50,6 +50,9 @@ gem 'thin'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'minitest-reporters',       '1.1.9'
+  gem 'guard',                    '2.13.0'
+  gem 'guard-minitest',           '2.4.4'
 end
 
 group :development do
